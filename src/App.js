@@ -23,7 +23,6 @@ function App() {
       {components.map((component, index) => (
         <div key={component.id} id={component.id}>
           {component.component}
-          <p className=''>hello world</p>
         </div>
       ))}
     </div>
