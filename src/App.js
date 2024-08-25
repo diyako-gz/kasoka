@@ -6,12 +6,14 @@ import Brands from './brands/brands';
 import Services from './our services/services';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import SearchBar from './seracher/SearchBar';
 
 gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   const components = [
     { component: <Header />, id: 'header' },
+    {component: <SearchBar/>, id: 'search'},
     { component: <Title />, id: 'title' },
     { component: <Texter />, id: 'texter' },
     { component: <Brands />, id: 'brands' },
