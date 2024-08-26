@@ -1,6 +1,35 @@
-import React from "react";
+import React, {useState} from "react"
+
 
 export default function SearchBar() {
+
+  const [searchData , setSearchData] = useState('')
+  const [hotelStarData , sethotelStarData] = useState('')
+  const [dateData , setdateData] = useState('')
+  const [formData, setFormData] = useState({});
+
+
+  const handleSearchDataChange = (e) => {
+    setSearchData(e.target.value);
+  } 
+
+  const handleHotelStarDataChange = (e) => {
+    sethotelStarData(e.target.value);
+  };
+
+  const handleDateDataChange = (e) => {
+    setdateData(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setFormData({
+      searchData,
+      hotelStarData,
+      dateData,
+    });
+  };
+
   return (
     <>
       <div className="flex justify-center mt-[50px]">
@@ -12,6 +41,8 @@ export default function SearchBar() {
             <input
               type="text"
               id="floating_outlined"
+              value={searchData}
+              onChange={handleSearchDataChange}
               className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
             />
@@ -26,6 +57,8 @@ export default function SearchBar() {
             <input
               type="text"
               id="floating_outlined"
+              value={hotelStarData}
+              onChange={handleHotelStarDataChange}
               className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
             />
@@ -40,6 +73,8 @@ export default function SearchBar() {
             <input
               type="text"
               id="floating_outlined"
+              value={dateData}
+              onChange={handleDateDataChange}
               className="block px-2.5 pb-2.5 pt-4 w-full text-sm text-gray-900 bg-transparent rounded-lg border-1 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" "
             />
@@ -53,6 +88,7 @@ export default function SearchBar() {
           <div className="w-[100px] bg-yellow-600 rounded-2xl m-[10px] text-right flex justify-center items-center">
             <button
               type="button"
+              onClick={handleSubmit}
               className="focus:outline-none text-white font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2"
             >
               جستجو
